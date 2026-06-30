@@ -215,7 +215,7 @@ function Hero() {
           alt=""
           width={1920}
           height={1280}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-right"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/20 to-transparent" />
