@@ -215,10 +215,10 @@ function Hero() {
           alt=""
           width={1920}
           height={1280}
-          className="h-full w-full object-cover opacity-70"
+          className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-transparent to-ink/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/20 to-transparent" />
       </motion.div>
 
       <motion.div style={{ opacity }} className="relative mx-auto w-full max-w-7xl px-6">
