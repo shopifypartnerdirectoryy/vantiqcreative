@@ -1233,6 +1233,29 @@ function Contact() {
     { i: TikTokIcon, l: "TikTok", v: "@vantiqcreative", h: "https://www.tiktok.com/@vantiqcreative" },
   ];
 
+  const send = useServerFn(submitContact);
+  const [form, setForm] = useState({ name: "", email: "", company: "", ptype: "", brief: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      await send({ data: form });
+      setStatus("sent");
+      setForm({ name: "", email: "", company: "", ptype: "", brief: "" });
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <section id="contact" className="relative py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2">
@@ -1263,12 +1286,12 @@ function Contact() {
         <motion.form
           {...fadeUp}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={onSubmit}
           className="space-y-5 rounded-3xl glass-strong p-8 md:p-10"
         >
-          <Field label="Name" name="name" placeholder="Your full name" />
-          <Field label="Email" name="email" type="email" placeholder="you@brand.com" />
-          <Field label="Company" name="company" placeholder="Brand or studio name" />
+          <Field label="Name" name="name" placeholder="Your full name" value={form.name} onChange={update("name")} required />
+          <Field label="Email" name="email" type="email" placeholder="you@brand.com" value={form.email} onChange={update("email")} required />
+          <Field label="Company" name="company" placeholder="Brand or studio name" value={form.company} onChange={update("company")} />
           <div>
             <label className="mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
               Project Type
@@ -1279,7 +1302,13 @@ function Contact() {
                   key={t}
                   className="cursor-pointer rounded-full glass px-3 py-1.5 text-xs text-muted-foreground transition-colors has-checked:bg-electric has-checked:text-white"
                 >
-                  <input type="radio" name="ptype" className="sr-only" />
+                  <input
+                    type="radio"
+                    name="ptype"
+                    className="sr-only"
+                    checked={form.ptype === t}
+                    onChange={() => setForm((f) => ({ ...f, ptype: t }))}
+                  />
                   {t}
                 </label>
               ))}
@@ -1291,17 +1320,27 @@ function Contact() {
             </label>
             <textarea
               rows={4}
+              required
+              value={form.brief}
+              onChange={update("brief")}
               placeholder="Tell us about the brand, ambition, and timing."
               className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-electric focus:outline-none"
             />
           </div>
           <button
             type="submit"
-            className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-foreground py-4 text-sm font-medium text-background transition-all hover:bg-electric hover:text-white hover:shadow-[var(--shadow-glow)]"
+            disabled={status === "sending"}
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-foreground py-4 text-sm font-medium text-background transition-all hover:bg-electric hover:text-white hover:shadow-[var(--shadow-glow)] disabled:opacity-60"
           >
-            Send Project Brief
+            {status === "sending" ? "Sending..." : status === "sent" ? "Sent — we'll be in touch" : "Send Project Brief"}
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
+          {status === "error" && (
+            <p className="text-[11px] text-red-400">{errorMsg}</p>
+          )}
+          {status === "sent" && (
+            <p className="text-[11px] text-electric">Thanks — your brief just landed. Expect a reply within minutes.</p>
+          )}
           <p className="flex items-center gap-2 text-[10px] text-muted-foreground">
             <ShieldCheck className="h-3 w-3" /> Instant response — we reply within minutes.
           </p>
@@ -1310,6 +1349,7 @@ function Contact() {
     </section>
   );
 }
+
 
 function Field({
   label,
