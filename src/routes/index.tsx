@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { submitContact } from "@/lib/contact.functions";
+import { toast } from "sonner";
 import {
   ArrowUpRight,
   Sparkles,
