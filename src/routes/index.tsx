@@ -21,6 +21,7 @@ import {
   Infinity as InfinityIcon,
   ShieldCheck,
   Mail,
+  Phone,
   MessageCircle,
   Linkedin,
   Instagram,
@@ -1223,6 +1224,7 @@ function FinalCTA() {
 function Contact() {
   const channels = [
     { i: Mail, l: "Email", v: "vantiqcreative@gmail.com", h: "mailto:vantiqcreative@gmail.com" },
+    { i: Phone, l: "Phone", v: "+1 (786) 480-0071", h: "tel:+17864800071" },
     { i: Linkedin, l: "LinkedIn", v: "Vantiqcreative", h: "https://www.linkedin.com/company/vantiqcreativeare" },
     { i: Instagram, l: "Instagram", v: "@vantiqcreative", h: "https://www.instagram.com/vantiqcreative" },
     { i: TikTokIcon, l: "TikTok", v: "@vantiqcreative", h: "https://www.tiktok.com/@vantiqcreative" },
