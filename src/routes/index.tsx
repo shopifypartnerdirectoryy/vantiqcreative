@@ -1356,11 +1356,17 @@ function Field({
   name,
   type = "text",
   placeholder,
+  value,
+  onChange,
+  required,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
 }) {
   return (
     <div>
@@ -1371,6 +1377,9 @@ function Field({
         name={name}
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
         className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-electric focus:outline-none"
       />
     </div>
