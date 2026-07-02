@@ -1376,6 +1376,7 @@ function Footer() {
             <a href="https://www.linkedin.com/company/vantiqcreativeare" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">LI</a>
             <a href="https://www.tiktok.com/@vantiqcreative" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">TT</a>
           </div>
+          <a href="tel:+17864800071" className="hover:text-foreground">+1 (786) 480-0071</a>
           <span className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_10px_var(--electric)]" />
             Available for new projects · Q1 2026
