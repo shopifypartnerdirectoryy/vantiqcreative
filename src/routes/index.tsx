@@ -1222,10 +1222,10 @@ function FinalCTA() {
 
 function Contact() {
   const channels = [
-    { i: Mail, l: "Email", v: "hello@vantiq.studio", h: "mailto:hello@vantiq.studio" },
-    { i: MessageCircle, l: "WhatsApp", v: "+1 (415) 555-0188", h: "#" },
-    { i: Linkedin, l: "LinkedIn", v: "/vantiq-creative", h: "#" },
-    { i: Instagram, l: "Instagram", v: "@vantiq.creative", h: "#" },
+    { i: Mail, l: "Email", v: "vantiqcreative@gmail.com", h: "mailto:vantiqcreative@gmail.com" },
+    { i: Linkedin, l: "LinkedIn", v: "Vantiqcreative", h: "https://www.linkedin.com/company/vantiqcreativeare" },
+    { i: Instagram, l: "Instagram", v: "@vantiqcreative", h: "https://www.instagram.com/vantiqcreative" },
+    { i: TikTokIcon, l: "TikTok", v: "@vantiqcreative", h: "https://www.tiktok.com/@vantiqcreative" },
   ];
 
   return (
@@ -1370,10 +1370,9 @@ function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 py-6 text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
           <span>© 2026 VANTIQ CREATIVE. All Rights Reserved.</span>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-foreground">IG</a>
-            <a href="#" className="hover:text-foreground">LI</a>
-            <a href="#" className="hover:text-foreground">BE</a>
-            <a href="#" className="hover:text-foreground">YT</a>
+            <a href="https://www.instagram.com/vantiqcreative" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">IG</a>
+            <a href="https://www.linkedin.com/company/vantiqcreativeare" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">LI</a>
+            <a href="https://www.tiktok.com/@vantiqcreative" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">TT</a>
           </div>
           <span className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_10px_var(--electric)]" />
