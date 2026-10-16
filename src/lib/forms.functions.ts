@@ -80,7 +80,7 @@ const titles: Record<string, string> = {
 };
 
 export const submitForm = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => schema.parse(data))
+  .validator((data: unknown) => schema.parse(data))
   .handler(async ({ data }) => {
     // Bot checks: honeypot filled or submitted too fast → pretend success, send nothing.
     if (data.website || Date.now() - data.startedAt < 2500) return { ok: true };
