@@ -5,6 +5,9 @@ import { submitForm, type FormPayload } from "@/lib/forms.functions";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
+type DistOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
+type Payload = DistOmit<FormPayload, "startedAt" | "website"> & { website?: string };
+
 export type Status = "idle" | "loading" | "success" | "error";
 
 /** Handles loading/success/error, duplicate-submission lock, and bot-timing for any form. */
@@ -12,7 +15,7 @@ export function useFormSubmit() {
   const send = useServerFn(submitForm);
   const [status, setStatus] = useState<Status>("idle");
   const startedAt = useRef(Date.now());
-  const submit = async (payload: Omit<FormPayload, "startedAt" | "website"> & { website?: string }) => {
+  const submit = async (payload: Payload) => {
     if (status === "loading") return;
     setStatus("loading");
     try {
