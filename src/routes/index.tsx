@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const books = visibleBooks().slice(0, 6);
+  const books = visibleBooks().slice(0, 10);
   const founder = site.founder;
   return (
     <>
@@ -80,7 +80,7 @@ function Home() {
       <div className="room">
         <Section>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHead label="04 — The Bookshelf" title="From the VANTIQ shelf." />
+            <SectionHead label="04 — Real books by real authors" title="Real books by real authors." />
             <Link to="/library" className={btnClass("outline")}>Explore the Library</Link>
           </div>
           {books.length ? (

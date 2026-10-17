@@ -53,9 +53,9 @@ function Library() {
     <div className="room bg-background">
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pt-44">
-          <Eyebrow>VANTIQ Library</Eyebrow>
+          <Eyebrow>Real books by real authors · VANTIQ Library</Eyebrow>
           <h1 className="mt-6 text-[clamp(2.5rem,7vw,5.5rem)] font-light leading-[1]">Find Your Next Good Read.</h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">Explore the books we publish, the stories we support, and the ideas worth keeping close.</p>
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground">Explore real books, meet their authors, and find your next good read.</p>
         </div>
       </section>
 
