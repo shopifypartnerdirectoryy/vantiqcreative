@@ -71,6 +71,7 @@ function BookPage() {
             {book.subtitle && <p className="mt-2 text-xl text-muted-foreground">{book.subtitle}</p>}
             {author && <p className="mt-4">by <Link to="/authors/$slug" params={{ slug: author.slug }} className="underline hover:text-gold">{author.name}</Link></p>}
             <p className="mt-3 text-sm text-muted-foreground">{avg ? `${avg.toFixed(1)} / 5 from ${book.approvedReviews.length} reader review${book.approvedReviews.length > 1 ? "s" : ""}` : "No reviews yet — be the first to review."}</p>
+            {book.retailerRating && <p className="mt-2 text-sm text-muted-foreground">{book.retailerRating.retailer} rating: {book.retailerRating.value.toFixed(1)} / 5 · {book.retailerRating.reviewCount} review{book.retailerRating.reviewCount === 1 ? "" : "s"}</p>}
             <p className="mt-6 max-w-2xl leading-relaxed">{book.description}</p>
             <dl className="mt-8 grid max-w-md grid-cols-2 gap-4 text-sm">
               <div><dt className="eyebrow">Formats</dt><dd className="mt-1">{book.formats.join(", ")}</dd></div>

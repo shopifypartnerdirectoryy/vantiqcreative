@@ -72,7 +72,7 @@ export const authors: Author[] = [
     name: "Patricia Squire",
     bio: "",
     socials: [],
-    genres: ["Children’s Fantasy"],
+    genres: ["Children's Fantasy"],
     permission: true,
     status: "approved",
   },
@@ -85,8 +85,6 @@ export const authors: Author[] = [
     genres: ["Romance & Fiction"],
     permission: true,
     status: "approved",
-    permission: true,
-    status: "draft",
   },
 ];
 

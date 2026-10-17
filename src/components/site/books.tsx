@@ -6,6 +6,13 @@ import { Tag } from "./primitives";
 import { cn } from "@/lib/utils";
 
 const genreAccent: Record<string, string> = {
+  "Christian Living & Healing": "oklch(0.48 0.08 150)",
+  "Medical Thriller": "oklch(0.4 0.1 225)",
+  "Contemporary Fiction": "oklch(0.48 0.09 30)",
+  "Historical Fiction": "oklch(0.45 0.08 80)",
+  "Literary Fiction": "oklch(0.42 0.08 300)",
+  Memoir: "oklch(0.46 0.09 35)",
+  "Children's Fantasy": "oklch(0.52 0.1 210)",
   "Self-Help & Mindset": "oklch(0.5 0.085 70)",
   "Dark Psychology & Influence": "oklch(0.42 0.12 25)",
   "AI & Future Tech": "oklch(0.45 0.1 240)",
@@ -57,6 +64,7 @@ export function BookCard({ book, onQuickView }: { book: Book; onQuickView?: (b: 
       <h3 className="mt-3 font-serif text-lg leading-snug">{book.title}</h3>
       {author && <p className="text-sm text-muted-foreground">{author.name}</p>}
       <p className="mt-1 text-xs text-muted-foreground">{book.genre} · {book.formats.join(", ")}{book.publicationDate ? ` · ${new Date(book.publicationDate).getFullYear()}` : ""}</p>
+      {book.retailerRating && <p className="mt-1 text-xs text-muted-foreground">{book.retailerRating.retailer} rating: {book.retailerRating.value.toFixed(1)} / 5 · {book.retailerRating.reviewCount} review{book.retailerRating.reviewCount === 1 ? "" : "s"}</p>}
       <div className="mt-3 flex gap-4 text-sm font-semibold">
         <Link to="/library/$slug" params={{ slug: book.slug }} className="min-h-11 inline-flex items-center hover:text-gold">
           View Details<span className="sr-only">: {book.title}</span> →

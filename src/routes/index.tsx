@@ -80,11 +80,11 @@ function Home() {
       <div className="room">
         <Section>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHead label="04 — Real books by real authors" title="Real books by real authors." />
+            <SectionHead label="04 — VANTIQ Press" title="Real books by real authors." />
             <Link to="/library" className={btnClass("outline")}>Explore the Library</Link>
           </div>
           {books.length ? (
-            <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+            <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
               {books.map((b) => <BookCard key={b.id} book={b} />)}
             </div>
           ) : (
