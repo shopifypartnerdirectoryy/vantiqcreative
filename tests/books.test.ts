@@ -1,0 +1,57 @@
+import { describe, expect, it } from "vitest";
+import { books, visibleBooks } from "../src/content/books";
+import { visibleAuthors } from "../src/content/authors";
+
+describe("submitted real books", () => {
+  it("lists all ten supplied books for visitors", () => {
+    expect(visibleBooks().map((book) => book.title)).toEqual([
+      "The Walking Wounded Revised",
+      "Nobel Pursuits",
+      "Valley of Saint Anne",
+      "Himba Pond Dance",
+      "Early Mornings with “Dick”",
+      "Blame It on Socrates",
+      "Proud American",
+      "Stjarna’s Stars",
+      "Shattered by Love",
+      "A Girl with a Bad Reputation",
+    ]);
+  });
+
+  it("uses each supplied retailer link without substituting a review URL", () => {
+    expect(books.flatMap((book) => book.retailers.map((retailer) => retailer.href))).toEqual([
+      "https://www.amazon.com/dp/B0GTLS5JDN",
+      "https://www.amazon.com/dp/B0DR3389GV",
+      "https://www.amazon.com/dp/B0FKQF9GYD",
+      "https://www.amazon.com/dp/B0FLB4NYSK",
+      "https://www.amazon.com/Early-QA-Dick-Jack-Ryan/dp/1808570472?ref_=ast_author_dp&th=1&psc=1",
+      "https://www.amazon.com/BLAME-SOCRATES-Jack-Ryan-ebook/dp/B0F2SJZY24?ref_=ast_author_mpb",
+      "https://www.amazon.com/Proud-American-Migrant-Soldier-Agent-ebook/dp/B0H1348M12?ref_=ast_author_mpb",
+      "https://www.amazon.com/Stjarnas-Stars-Patricia-Squire/dp/1039192289",
+      "https://www.amazon.com/Shattered-Love-carousel-romance-heartache-ebook/dp/B0CNKYDB52?ref_=ast_author_mpb",
+      "https://www.amazon.com/Girl-Bad-Reputation-Dave-Gioia-ebook/dp/B0F45YJJHN?ref_=ast_author_mpb",
+    ]);
+  });
+
+  it("keeps Amazon ratings separate from actual approved reader reviews", () => {
+    expect(books.find((book) => book.slug === "nobel-pursuits")?.retailerRating).toEqual({
+      value: 4.6,
+      reviewCount: 3,
+      retailer: "Amazon",
+    });
+    expect(books.every((book) => book.approvedReviews.length === 0)).toBe(true);
+  });
+
+  it("lists only actual supplied cover files and every named author", () => {
+    expect(books.filter((book) => book.cover)).toHaveLength(8);
+    expect(visibleAuthors().map((author) => author.name)).toEqual([
+      "Deborah Ling",
+      "Rosemarie Aquilina & Robert Leader†",
+      "Dave Gioia",
+      "Jack Ryan",
+      "Sergio A. Tinoco",
+      "Patricia Squire",
+      "Michael Knapp",
+    ]);
+  });
+});
