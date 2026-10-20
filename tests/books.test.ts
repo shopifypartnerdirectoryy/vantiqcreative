@@ -1,4 +1,4 @@
-import { describe, expect, it } from "bun:test";
+import { describe, expect, it } from "vitest";
 import { books, visibleBooks } from "../src/content/books";
 import { visibleAuthors } from "../src/content/authors";
 
