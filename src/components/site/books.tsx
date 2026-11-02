@@ -19,6 +19,11 @@ const genreAccent: Record<string, string> = {
   "Thriller & Mystery": "oklch(0.32 0.03 260)",
   "Romance & Fiction": "oklch(0.5 0.12 0)",
   "Business & Marketing": "oklch(0.42 0.07 160)",
+  Essays: "oklch(0.42 0.06 220)",
+  "Science Fiction": "oklch(0.4 0.1 245)",
+  "Sports Fiction": "oklch(0.48 0.1 145)",
+  Western: "oklch(0.46 0.09 55)",
+  "History & Myth": "oklch(0.44 0.08 85)",
   Other: "oklch(0.4 0.02 60)",
 };
 

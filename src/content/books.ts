@@ -7,6 +7,13 @@ import earlyMorningsCover from "@/assets/early-mornings-with-dick-cover.png.asse
 import blameItOnSocratesCover from "@/assets/blame-it-on-socrates-cover.png.asset.json";
 import proudAmericanCover from "@/assets/proud-american-cover.png.asset.json";
 import stjarnasStarsCover from "@/assets/stjarnas-stars-cover.png.asset.json";
+import lucreciaCover from "@/assets/lucrecia-cover.png.asset.json";
+import reflectionsCover from "@/assets/reflections-twenty-first-century-cover.png.asset.json";
+import superpowerCover from "@/assets/superpower-cover.png.asset.json";
+import finishTheRaceCover from "@/assets/finish-the-race-cover.png.asset.json";
+import gunfightersCover from "@/assets/gunfighters-thieves-lawmen-cover.png.asset.json";
+import boundariesCover from "@/assets/boundaries-cover.png.asset.json";
+import egyptUnderTheStarsCover from "@/assets/egypt-under-the-stars-cover.png.asset.json";
 
 export type Genre =
   | "Christian Living & Healing"
@@ -22,9 +29,14 @@ export type Genre =
   | "Thriller & Mystery"
   | "Romance & Fiction"
   | "Business & Marketing"
+  | "Essays"
+  | "Science Fiction"
+  | "Sports Fiction"
+  | "Western"
+  | "History & Myth"
   | "Other";
 
-export type Format = "Ebook" | "Paperback" | "Hardcover" | "Audiobook";
+export type Format = "Ebook" | "Paperback" | "Hardcover" | "Audiobook" | "Kindle Edition";
 
 export type Review = { name: string; rating: number; text: string; date: string };
 export type RetailerRating = { value: number; reviewCount: number; retailer: string };
@@ -206,6 +218,107 @@ export const books: Book[] = [
     genre: "Literary Fiction",
     formats: ["Ebook"],
     retailers: [{ label: "Amazon", href: "https://www.amazon.com/Girl-Bad-Reputation-Dave-Gioia-ebook/dp/B0F45YJJHN?ref_=ast_author_mpb" }],
+    status: "approved",
+    consent: true,
+    approvedReviews: [],
+  },
+  {
+    id: "lucrecia-memoir",
+    slug: "lucrecia-memoir-of-a-manic-woman",
+    title: "Lucrecia: Memoir of a Manic Woman",
+    authorId: "jamie-goudeau",
+    description: "A candid memoir of living with mania, resilience, and the long search for wholeness.",
+    genre: "Memoir",
+    cover: lucreciaCover.url,
+    formats: ["Paperback"],
+    retailers: [{ label: "Amazon", href: "https://www.amazon.com/Lucrecia-Memoir-Manic-Jamie-Goudeau/dp/B0H639GLNQ" }],
+    status: "approved",
+    consent: true,
+    approvedReviews: [],
+  },
+  {
+    id: "reflections-twenty-first-century",
+    slug: "reflections-for-the-twenty-first-century",
+    title: "Reflections for the Twenty-First Century",
+    authorId: "jean-pi-lee",
+    description: "Thoughtful essays on a changing world, from global shifts to the personal questions of modern life.",
+    genre: "Essays",
+    cover: reflectionsCover.url,
+    formats: ["Paperback"],
+    retailers: [{ label: "Amazon", href: "https://www.amazon.com/Reflections-Twenty-First-Century-Jean-Lee/dp/1039151930" }],
+    status: "approved",
+    consent: true,
+    approvedReviews: [],
+  },
+  {
+    id: "superpower",
+    slug: "superpower-ability-to-fly-or-become-invisible",
+    title: "SuperPower: The Ability to Fly or to Become Invisible",
+    authorId: "roger-e-pedersen",
+    description: "Book 4 of In Ashes, Phoenix Eagles Shall Rise — where extraordinary abilities carry extraordinary consequences.",
+    genre: "Science Fiction",
+    cover: superpowerCover.url,
+    formats: ["Kindle Edition"],
+    retailers: [{ label: "Amazon", href: "https://www.amazon.com/SuperPower-Ability-Become-Invisible-Phoenix-ebook/dp/B0DFBXKY2C" }],
+    series: "In Ashes, Phoenix Eagles Shall Rise",
+    status: "approved",
+    consent: true,
+    approvedReviews: [],
+  },
+  {
+    id: "finish-the-race",
+    slug: "finish-the-race",
+    title: "Finish the Race",
+    authorId: "jon-waller",
+    description: "An energetic story of endurance and determination, where crossing the line means more than winning.",
+    genre: "Sports Fiction",
+    cover: finishTheRaceCover.url,
+    formats: ["Hardcover"],
+    retailers: [{ label: "Amazon", href: "https://www.amazon.com/Finish-Race-Jon-Waller/dp/B0H1P1D7PM" }],
+    status: "approved",
+    consent: true,
+    approvedReviews: [],
+  },
+  {
+    id: "gunfighters-thieves-lawmen",
+    slug: "gunfighters-thieves-and-lawmen",
+    title: "Gunfighters, Thieves and Lawmen",
+    subtitle: "Illustrated by Samantha Singer",
+    authorId: "david-milton-mcgowan",
+    description: "Frontier tales of outlaws, lawmen, and the hard choices of the open range.",
+    genre: "Western",
+    cover: gunfightersCover.url,
+    formats: ["Kindle Edition"],
+    retailers: [{ label: "Amazon", href: "https://www.amazon.com/Gunfighters-Thieves-Lawmen-Milton-McGowan-ebook/dp/B08DNHKVVV" }],
+    status: "approved",
+    consent: true,
+    approvedReviews: [],
+  },
+  {
+    id: "boundaries",
+    slug: "boundaries-david-m-mcgowan",
+    title: "Boundaries",
+    authorId: "david-milton-mcgowan",
+    description: "A Western of ranch country, loyalty, and the lines people draw — and cross.",
+    genre: "Western",
+    cover: boundariesCover.url,
+    formats: ["Kindle Edition"],
+    retailers: [{ label: "Amazon", href: "https://www.amazon.com/Boundaries-David-M-McGowan-ebook/dp/B0CRMWVRLW" }],
+    status: "approved",
+    consent: true,
+    approvedReviews: [],
+  },
+  {
+    id: "egypt-under-the-stars",
+    slug: "egypt-under-the-stars",
+    title: "Egypt Under the Stars",
+    subtitle: "Astral Religion and Cosmogonic Myth in Ancient Egypt",
+    authorId: "ev-cochrane",
+    description: "A scholarly exploration of astral religion and cosmogonic myth in ancient Egypt.",
+    genre: "History & Myth",
+    cover: egyptUnderTheStarsCover.url,
+    formats: ["Kindle Edition"],
+    retailers: [{ label: "Amazon UK", href: "https://www.amazon.co.uk/Egypt-Under-Stars-Religion-Cosmogonic-ebook/dp/B0GH3HPFL8" }],
     status: "approved",
     consent: true,
     approvedReviews: [],
