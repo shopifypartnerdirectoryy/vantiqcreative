@@ -58,7 +58,7 @@ describe("submitted real books", () => {
   });
 
   it("lists only actual supplied cover files and every named author", () => {
-    expect(books.filter((book) => book.cover)).toHaveLength(15);
+    expect(books.filter((book) => book.cover)).toHaveLength(17);
     expect(visibleAuthors().map((author) => author.name)).toEqual([
       "Deborah Ling",
       "Rosemarie Aquilina & Robert Leader†",

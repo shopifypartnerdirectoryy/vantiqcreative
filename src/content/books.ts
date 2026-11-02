@@ -7,6 +7,8 @@ import earlyMorningsCover from "@/assets/early-mornings-with-dick-cover.png.asse
 import blameItOnSocratesCover from "@/assets/blame-it-on-socrates-cover.png.asset.json";
 import proudAmericanCover from "@/assets/proud-american-cover.png.asset.json";
 import stjarnasStarsCover from "@/assets/stjarnas-stars-cover.png.asset.json";
+import shatteredByLoveCover from "@/assets/shattered-by-love-cover.png.asset.json";
+import girlWithBadReputationCover from "@/assets/girl-with-a-bad-reputation-cover.png.asset.json";
 import lucreciaCover from "@/assets/lucrecia-cover.png.asset.json";
 import reflectionsCover from "@/assets/reflections-twenty-first-century-cover.png.asset.json";
 import superpowerCover from "@/assets/superpower-cover.png.asset.json";
@@ -203,6 +205,7 @@ export const books: Book[] = [
     authorId: "michael-knapp",
     description: "A heartfelt story of romance, joy, and heartache across a life shaped by family and service.",
     genre: "Romance & Fiction",
+    cover: shatteredByLoveCover.url,
     formats: ["Ebook"],
     retailers: [{ label: "Amazon", href: "https://www.amazon.com/Shattered-Love-carousel-romance-heartache-ebook/dp/B0CNKYDB52?ref_=ast_author_mpb" }],
     status: "approved",
@@ -216,6 +219,7 @@ export const books: Book[] = [
     authorId: "dave-gioia",
     description: "A sharp, emotional novel about rumour, judgement, and a young woman reclaiming her own story.",
     genre: "Literary Fiction",
+    cover: girlWithBadReputationCover.url,
     formats: ["Ebook"],
     retailers: [{ label: "Amazon", href: "https://www.amazon.com/Girl-Bad-Reputation-Dave-Gioia-ebook/dp/B0F45YJJHN?ref_=ast_author_mpb" }],
     status: "approved",
