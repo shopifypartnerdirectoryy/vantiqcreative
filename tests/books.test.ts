@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { books, visibleBooks } from "../src/content/books";
 import { visibleAuthors } from "../src/content/authors";
+import { site } from "../src/content/site";
 
 describe("submitted real books", () => {
-  it("lists all ten supplied books for visitors", () => {
+  it("lists all seventeen supplied books for visitors", () => {
     expect(visibleBooks().map((book) => book.title)).toEqual([
       "The Walking Wounded Revised",
       "Nobel Pursuits",
@@ -15,6 +16,13 @@ describe("submitted real books", () => {
       "Stjarna’s Stars",
       "Shattered by Love",
       "A Girl with a Bad Reputation",
+      "Lucrecia: Memoir of a Manic Woman",
+      "Reflections for the Twenty-First Century",
+      "SuperPower: The Ability to Fly or to Become Invisible",
+      "Finish the Race",
+      "Gunfighters, Thieves and Lawmen",
+      "Boundaries",
+      "Egypt Under the Stars",
     ]);
   });
 
@@ -30,6 +38,13 @@ describe("submitted real books", () => {
       "https://www.amazon.com/Stjarnas-Stars-Patricia-Squire/dp/1039192289",
       "https://www.amazon.com/Shattered-Love-carousel-romance-heartache-ebook/dp/B0CNKYDB52?ref_=ast_author_mpb",
       "https://www.amazon.com/Girl-Bad-Reputation-Dave-Gioia-ebook/dp/B0F45YJJHN?ref_=ast_author_mpb",
+      "https://www.amazon.com/Lucrecia-Memoir-Manic-Jamie-Goudeau/dp/B0H639GLNQ",
+      "https://www.amazon.com/Reflections-Twenty-First-Century-Jean-Lee/dp/1039151930",
+      "https://www.amazon.com/SuperPower-Ability-Become-Invisible-Phoenix-ebook/dp/B0DFBXKY2C",
+      "https://www.amazon.com/Finish-Race-Jon-Waller/dp/B0H1P1D7PM",
+      "https://www.amazon.com/Gunfighters-Thieves-Lawmen-Milton-McGowan-ebook/dp/B08DNHKVVV",
+      "https://www.amazon.com/Boundaries-David-M-McGowan-ebook/dp/B0CRMWVRLW",
+      "https://www.amazon.co.uk/Egypt-Under-Stars-Religion-Cosmogonic-ebook/dp/B0GH3HPFL8",
     ]);
   });
 
@@ -43,7 +58,7 @@ describe("submitted real books", () => {
   });
 
   it("lists only actual supplied cover files and every named author", () => {
-    expect(books.filter((book) => book.cover)).toHaveLength(8);
+    expect(books.filter((book) => book.cover)).toHaveLength(17);
     expect(visibleAuthors().map((author) => author.name)).toEqual([
       "Deborah Ling",
       "Rosemarie Aquilina & Robert Leader†",
@@ -52,6 +67,18 @@ describe("submitted real books", () => {
       "Sergio A. Tinoco",
       "Patricia Squire",
       "Michael Knapp",
+      "Jamie Goudeau",
+      "Jean Pi Lee",
+      "Roger E. Pedersen",
+      "Jon Waller",
+      "David Milton McGowan",
+      "Ev Cochrane",
     ]);
+  });
+
+  it("uses the supplied founder name and portrait-backed profile", () => {
+    expect(site.founder.name).toBe("Haliy Adam");
+    expect(site.founder.photo).toContain("haliy-adam-founder.jpg");
+    expect(site.founder.bio).toContain("every story deserves a screen and a shelf");
   });
 });

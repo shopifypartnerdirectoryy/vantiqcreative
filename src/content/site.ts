@@ -1,4 +1,5 @@
 /** Site-wide configuration. Edit values here; every page reads from this file. */
+import haliyAdamPortrait from "@/assets/haliy-adam-founder.jpg.asset.json";
 
 /** Preview builds show draft records and [PLACEHOLDER] values so you can see where content goes.
  *  Published builds hide them. */
@@ -25,9 +26,9 @@ export const site = {
     { id: "linkedin", label: "LinkedIn", handle: "VANTIQ CREATIVE", href: "https://www.linkedin.com/company/vantiqcreativeare" },
   ],
   founder: {
-    name: "[MY NAME]",
-    bio: "[FOUNDER BIO]",
-    photo: null as string | null, // [FOUNDER PHOTO] — import an image and set it here
+    name: "Haliy Adam",
+    bio: "Haliy Adam founded VANTIQ CREATIVE around a simple belief: every story deserves a screen and a shelf. The creative house brings visual storytelling, brand growth, and publishing together, helping ideas find their form and reach the audiences they deserve.",
+    photo: haliyAdamPortrait.url,
     credentials: "[FOUNDER CREDENTIALS]",
     socials: [] as { label: string; href: string }[], // [FOUNDER SOCIAL LINKS]
   },
