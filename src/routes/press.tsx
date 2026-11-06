@@ -5,7 +5,7 @@ import { seo } from "@/lib/seo";
 import { pressServices, pressDisclaimer } from "@/content/services";
 import { pressPackages } from "@/content/packages";
 import { budgetRanges } from "@/content/site";
-import { PageHero, Section, SectionHead, ServiceGrid, Steps, btnClass } from "@/components/site/primitives";
+import { PageHero, Section, SectionHead, PressServiceCatalog, Steps, btnClass } from "@/components/site/primitives";
 import { BundleBuilder } from "@/components/site/blocks";
 import { Consent, Field, FormStatus, Honeypot, SubmitButton, isEmail, useFormSubmit } from "@/components/site/forms";
 
@@ -24,7 +24,7 @@ function Press() {
 
       <Section id="services">
         <SectionHead label="01 — Author Services" title="Everything around the book." />
-        <div className="mt-12"><ServiceGrid items={pressServices} cols={3} ctaTo="/contact" ctaType="Book Publishing & Promotion" /></div>
+        <div className="mt-8"><PressServiceCatalog items={pressServices} /></div>
         <p className="mt-8 max-w-3xl border-l-2 border-gold pl-4 text-sm text-muted-foreground">{pressDisclaimer}</p>
       </Section>
 

@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep retailer-supplied ratings distinct from moderated reader reviews so each rating retains its source.
+- Keep service offering content and categories in `src/content/services.ts`; keep service filtering, detail disclosure, and enquiry navigation in site presentation components.

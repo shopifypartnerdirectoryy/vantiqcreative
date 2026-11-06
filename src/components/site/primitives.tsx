@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import type { ComponentProps, ReactNode } from "react";
+import type { PressService } from "@/content/services";
 import { cn } from "@/lib/utils";
 
 export function Reveal({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
@@ -118,6 +121,49 @@ export function ServiceGrid({ items, cols = 4, ctaTo, ctaType }: { items: { titl
           </div>
         </article>
       ))}
+    </div>
+  );
+}
+
+export function PressServiceCatalog({ items }: { items: PressService[] }) {
+  const [category, setCategory] = useState("All services");
+  const [openTitle, setOpenTitle] = useState<string | null>(null);
+  const categories = ["All services", ...new Set(items.map((item) => item.category))];
+  const visible = category === "All services" ? items : items.filter((item) => item.category === category);
+
+  return (
+    <div>
+      <div role="group" aria-label="Filter services by category" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-4">
+        {categories.map((item) => (
+          <button key={item} type="button" aria-pressed={category === item} onClick={() => { setCategory(item); setOpenTitle(null); }}
+            className={cn("min-h-10 shrink-0 border-b-2 px-3 text-sm transition-colors", category === item ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground")}>
+            {item}
+          </button>
+        ))}
+      </div>
+      <p aria-live="polite" className="pb-4 text-xs text-muted-foreground">{visible.length} services</p>
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {visible.map((service, index) => {
+          const expanded = openTitle === service.title;
+          const panelId = `press-service-${index}`;
+          return (
+            <article key={service.title} className="flex flex-col border border-border bg-card p-5 transition-colors hover:border-primary/35 sm:p-6">
+              <p className="font-mono text-[10px] uppercase text-muted-foreground">{service.category}</p>
+              <h3 className="mt-4 font-serif text-xl leading-snug">{service.title}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{service.text}</p>
+              <button type="button" aria-expanded={expanded} aria-controls={panelId} onClick={() => setOpenTitle(expanded ? null : service.title)}
+                className="mt-4 flex min-h-11 items-center justify-between border-t border-border pt-3 text-left text-sm font-medium text-foreground hover:text-primary">
+                {expanded ? "Less about this service" : "What’s included"}
+                <ChevronDown aria-hidden className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")} />
+              </button>
+              {expanded && <ul id={panelId} className="mt-1 space-y-2 text-sm leading-relaxed text-muted-foreground">{service.details.map((detail) => <li key={detail} className="flex gap-2"><span aria-hidden className="text-gold">—</span><span>{detail}</span></li>)}</ul>}
+              <Link to="/contact" search={{ type: "Book Publishing & Promotion", service: service.title }} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-primary hover:text-gold">
+                Ask about this service <span aria-hidden className="ml-2">→</span>
+              </Link>
+            </article>
+          );
+        })}
+      </div>
     </div>
   );
 }

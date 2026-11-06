@@ -8,6 +8,8 @@ import heroShelf from "@/assets/hero-screen-shelf.jpg";
 import reading from "@/assets/press-reading-room.jpg";
 
 export type Service = { title: string; text: string; image?: string };
+export type PressServiceCategory = "Strategy & Positioning" | "Design & Production" | "Reader Discovery" | "Promotion & Publicity" | "Author Platform";
+export type PressService = Service & { category: PressServiceCategory; details: string[] };
 
 export const divisions = [
   { id: "studio", n: "01", name: "VANTIQ Studio", headline: "Make the Idea Visible.", text: "AI-powered commercials, branded films, product visuals, and cinematic storytelling.", cta: "Explore Studio", to: "/studio" as const, image: workAuto },
@@ -38,17 +40,24 @@ export const growthServices: Service[] = [
   { title: "Analytics & Performance Reporting", text: "Dashboards and plain-language reports that show what is working and what to change." },
 ];
 
-export const pressServices: Service[] = [
-  { title: "Book Cover Design", text: "Covers designed for the genre, the shelf, and the thumbnail." },
-  { title: "Book Trailer Production", text: "Cinematic trailers for launch pages, social feeds, and author events." },
-  { title: "Author Branding", text: "A consistent look, voice, and presence across everything you publish." },
-  { title: "Author Website Design", text: "A home for your books, newsletter, and events that you own outright." },
-  { title: "Book Launch Campaigns", text: "Coordinated creative and messaging around your release window." },
-  { title: "Social Content for Authors", text: "Posts, short videos, and quote cards that sound like you." },
-  { title: "Reader Community Promotion", text: "Introduce your book to the VANTIQ Reader Circle, with your permission." },
-  { title: "Editorial & Book Description Copywriting", text: "Back-cover copy, retailer descriptions, and author bios that read well." },
-  { title: "AI-Assisted Promotional Visuals", text: "Mood imagery and scene visuals for campaigns, always clearly labelled." },
-  { title: "Author Marketing Strategy", text: "A practical plan for reaching readers before, during, and after launch." },
+export const pressServices: PressService[] = [
+  { title: "Book Cover Design", category: "Design & Production", text: "Covers designed for the genre, the shelf, and the thumbnail.", details: ["Genre-aware visual direction", "Front-cover concepts for print and digital shelves", "A coordinated look across a series, when needed"] },
+  { title: "Book Trailer Production", category: "Promotion & Publicity", text: "Cinematic trailers for launch pages, social feeds, and author events.", details: ["Concept and short-form script", "Cinematic visuals, titles, and sound direction", "Exports prepared for agreed digital placements"] },
+  { title: "Author Branding", category: "Strategy & Positioning", text: "A consistent look, voice, and presence across everything you publish.", details: ["Author positioning and audience direction", "Visual identity and voice guidance", "Practical brand assets for consistent use"] },
+  { title: "Author Website Design", category: "Author Platform", text: "A home for your books, newsletter, and events that you own outright.", details: ["Author and book pages", "Reader signup and contact paths", "Responsive design and content handoff"] },
+  { title: "Book Launch Campaigns", category: "Promotion & Publicity", text: "Coordinated creative and messaging around your release window.", details: ["Release timeline and campaign themes", "Coordinated assets for agreed channels", "A practical publishing and promotion checklist"] },
+  { title: "Social Content for Authors", category: "Promotion & Publicity", text: "Posts, short videos, and quote cards that sound like you.", details: ["Reusable post concepts and captions", "Short-form video and quote-card creative", "A publishing plan shaped around the book"] },
+  { title: "Reader Community Promotion", category: "Reader Discovery", text: "Introduce your book to the VANTIQ Reader Circle, with your permission.", details: ["A reader-facing book introduction", "Author or title spotlight creative", "Shared only with your explicit approval"] },
+  { title: "Editorial & Book Description Copywriting", category: "Design & Production", text: "Back-cover copy, retailer descriptions, and author bios that read well.", details: ["Book description and back-cover copy", "Author biography and short promotional copy", "Editorial refinement that keeps your voice intact"] },
+  { title: "AI-Assisted Promotional Visuals", category: "Design & Production", text: "Mood imagery and scene visuals for campaigns, always clearly labelled.", details: ["Book-inspired campaign imagery", "Visual direction matched to genre and tone", "Clear labelling wherever AI-assisted visuals are used"] },
+  { title: "Author Marketing Strategy", category: "Strategy & Positioning", text: "A practical plan for reaching readers before, during, and after launch.", details: ["Audience and positioning review", "Channel and content priorities", "A sequenced plan for launch and ongoing discovery"] },
+  { title: "Book Interior & eBook Formatting", category: "Design & Production", text: "Reader-friendly interior layouts prepared for the formats you choose.", details: ["Interior typography and page layout", "Digital reading layout preparation", "Files prepared to the agreed delivery specifications"] },
+  { title: "Retailer Listing & Metadata Review", category: "Reader Discovery", text: "A clarity check for the book details readers see on retailer pages.", details: ["Review of supplied title, description, and book details", "Metadata and category consistency notes", "Recommendations only; retailer placement or sales are not guaranteed"] },
+  { title: "Advance Reader Campaign Coordination", category: "Reader Discovery", text: "Organize an advance-copy outreach plan before a release.", details: ["Reader invitation and campaign timeline", "Advance-copy communication materials", "Reviews are voluntary; ratings or reviews are never guaranteed"] },
+  { title: "Reader Platform Profile Support", category: "Reader Discovery", text: "Prepare accurate book and author information for reader-discovery platforms.", details: ["Profile and book information checklist", "Consistent descriptions and author details", "No promised ratings, reviews, recommendations, or placements"] },
+  { title: "Book Club Discussion Guides", category: "Reader Discovery", text: "Give reading groups thoughtful prompts to start a conversation.", details: ["Book-specific discussion questions", "A concise downloadable guide", "Optional author introduction for book-club hosts"] },
+  { title: "Podcast & Media Pitch Preparation", category: "Promotion & Publicity", text: "Help shape a clear, relevant story for interviews and media outreach.", details: ["Interview angles grounded in the book and author", "Short pitch, biography, and talking points", "Coverage and interview placements are not guaranteed"] },
+  { title: "Author Newsletter & Welcome Sequence", category: "Author Platform", text: "Build a direct, reader-friendly way to stay in touch between releases.", details: ["Newsletter signup and welcome-message direction", "A simple reader onboarding sequence", "Editorial prompts for future author updates"] },
 ];
 
 export const pressDisclaimer =
