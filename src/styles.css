@@ -132,6 +132,10 @@
   --glow: none;
 }
 
+.room :is(h1, h2, h3, h4) {
+  letter-spacing: 0;
+}
+
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }

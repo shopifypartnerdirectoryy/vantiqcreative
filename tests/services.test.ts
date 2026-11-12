@@ -11,10 +11,12 @@ describe("VANTIQ Press services", () => {
     expect(titles).toContain("Book Club Discussion Guides");
     expect(titles).toContain("Podcast & Media Pitch Preparation");
     expect(titles).toContain("Author Newsletter & Welcome Sequence");
+    expect(titles).toContain("Amazon Book Advertising");
+    expect(titles).toContain("BookTok & Short-Form Video Campaigns");
   });
 
   it("provides details and a category for every browsable service", () => {
-    expect(pressServices).toHaveLength(17);
+    expect(pressServices).toHaveLength(19);
     expect(pressServices.every((service) => service.category && service.details.length > 0)).toBe(true);
   });
 
