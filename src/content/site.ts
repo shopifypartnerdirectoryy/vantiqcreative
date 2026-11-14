@@ -10,24 +10,25 @@ export const isPlaceholder = (v?: string | null) => !v || /^\[.*\]$/.test(v.trim
 export const ph = (v?: string | null) => (isPlaceholder(v) && !SHOW_DRAFTS ? null : v ?? null);
 
 export const site = {
-  name: "VANTIQ CREATIVE",
+  name: "Brainboxpress",
   url: "https://vantiqcreative.lovable.app",
   tagline: "Every story deserves a screen and a shelf.",
   email: "vantiqcreative@gmail.com",
-  phoneDisplay: "+1 (786) 480-0071",
-  phoneHref: "tel:+17864800071",
-  whatsapp: "https://wa.me/17864800071",
+  phoneDisplay: "+1 (331) 278-2900",
+  phoneHref: "tel:+13312782900",
+  whatsapp: "https://wa.me/13312782900",
   /** Availability line in the final CTA. Set to null to hide. */
   availability: "Now booking [MONTH YEAR]." as string | null,
-  responseNote: "We aim to respond within one business day.",
+  responseNote: "Tell us about your book and the readers you want to reach.",
   socials: [
-    { id: "instagram", label: "Instagram", handle: "@vantiqcreative", href: "https://www.instagram.com/vantiqcreative" },
-    { id: "tiktok", label: "TikTok", handle: "@vantiqcreative", href: "https://www.tiktok.com/@vantiqcreative" },
-    { id: "linkedin", label: "LinkedIn", handle: "VANTIQ CREATIVE", href: "https://www.linkedin.com/company/vantiqcreativeare" },
+    { id: "instagram", label: "Instagram", handle: "@brainboxpress", href: "https://www.instagram.com/brainboxpress" },
+    { id: "tiktok", label: "TikTok", handle: "@brainboxpress", href: "https://www.tiktok.com/@brainboxpress" },
+    { id: "x", label: "X", handle: "@brainboxpress", href: "https://www.x.com/brainboxpress" },
+    { id: "linkedin", label: "LinkedIn", handle: "Brainboxpress", href: "https://www.linkedin.com/company/brainboxpress" },
   ],
   founder: {
     name: "Haliy Adam",
-    bio: "Haliy Adam founded VANTIQ CREATIVE around a simple belief: every story deserves a screen and a shelf. The creative house brings visual storytelling, brand growth, and publishing together, helping ideas find their form and reach the audiences they deserve.",
+    bio: "Haliy Adam is the founder of Brainboxpress, a book marketing and promotion company focused on helping authors introduce their books to readers.",
     photo: haliyAdamPortrait.url,
     credentials: "[FOUNDER CREDENTIALS]",
     socials: [] as { label: string; href: string }[], // [FOUNDER SOCIAL LINKS]
@@ -36,26 +37,17 @@ export const site = {
 };
 
 export const navLinks = [
-  { to: "/work", label: "Work" },
-  { to: "/studio", label: "Studio" },
-  { to: "/growth", label: "Growth" },
-  { to: "/press", label: "Press" },
-  { to: "/library", label: "Library" },
-  { to: "/community", label: "Reader Circle" },
-  { to: "/process", label: "Process" },
+  { to: "/press", label: "Services" },
+  { to: "/library", label: "Books" },
   { to: "/about", label: "About" },
 ] as const;
 
 export const projectTypes = [
-  "AI Film & Commercials",
-  "Product Videos",
-  "Social Media",
-  "Digital Marketing",
-  "Brand Strategy",
-  "Book Publishing & Promotion",
-  "Feature My Book",
-  "Author Branding",
-  "Other",
+  "Book marketing & promotion",
+  "Book launch campaign",
+  "Author branding",
+  "Book trailer & social content",
+  "Other book marketing support",
 ] as const;
 
 export const budgetRanges = ["Under $1,000", "$1,000 – $3,000", "$3,000 – $7,500", "$7,500 – $15,000", "$15,000+", "Not sure yet"];

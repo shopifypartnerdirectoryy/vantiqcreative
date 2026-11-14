@@ -1,7 +1,7 @@
 import { site } from "@/content/site";
 
 export function seo({ title, description, path, type = "website" }: { title: string; description: string; path: string; type?: string }) {
-  const full = `${title} | VANTIQ CREATIVE`;
+  const full = `${title} | Brainboxpress`;
   return {
     meta: [
       { title: full },
